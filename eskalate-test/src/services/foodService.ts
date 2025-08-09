@@ -8,10 +8,10 @@ export interface FoodItem {
   restaurant_status: "Open Now" | "Closed";
 }
 
-const API_URL = process.env.api || 'http://localhost:3002/api/foods';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
+const API_URL = `${API_BASE_URL}/api/foods`;
 
 export const getFoods = async (name = ''): Promise<FoodItem[]> => {
-    console.log("I am called")
   const url = name ? `${API_URL}?name=${name}` : API_URL;
   const response = await fetch(url);
   return response.json();
@@ -23,7 +23,6 @@ export const createFood = async (foodData: Omit<FoodItem, 'id'>): Promise<FoodIt
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(foodData)
   });
-  console.log("what is the response",response)
   return response.json();
 };
 

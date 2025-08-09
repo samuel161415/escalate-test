@@ -20,7 +20,7 @@ export default function Home() {
   } = useFoods();
 
   const [showModal, setShowModal] = useState(false);
-  const [currentFood, setCurrentFood] = useState<FoodItem | null>(null);
+  const [currentFood, setCurrentFood] = useState<FoodItem | undefined>(undefined);
   const [deliveryType, setDeliveryType] = useState("Delivery");
 
   const handleSaveFood = async (e: React.FormEvent) => {
@@ -34,8 +34,8 @@ export default function Home() {
       } else {
         await createFood(foodData as unknown as Omit<FoodItem, "id">);
       }
-      setShowModal(false);
-      setCurrentFood(null);
+        setShowModal(false);
+        setCurrentFood(undefined);
     } catch (error) {
       console.error("Error saving food:", error);
     }
@@ -141,8 +141,8 @@ export default function Home() {
       <FoodModal
         isOpen={showModal}
         onClose={() => {
-          setShowModal(false);
-          setCurrentFood(null);
+        setShowModal(false);
+        setCurrentFood(undefined);
         }}
         onSave={handleSaveFood}
         food={currentFood}

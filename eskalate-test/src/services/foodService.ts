@@ -8,7 +8,7 @@ export interface FoodItem {
   restaurant_status: "Open Now" | "Closed";
 }
 
-const API_URL = 'http://localhost:3002/api/foods';
+const API_URL = process.env.api || 'http://localhost:3002/api/foods';
 
 export const getFoods = async (name = ''): Promise<FoodItem[]> => {
     console.log("I am called")

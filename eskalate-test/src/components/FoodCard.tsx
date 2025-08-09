@@ -1,5 +1,5 @@
-import React from 'react';
-import { FoodItem } from '../services/foodService';
+import React from "react";
+import { FoodItem } from "../services/foodService";
 
 interface FoodCardProps {
   food: FoodItem;
@@ -12,19 +12,33 @@ const FoodCard: React.FC<FoodCardProps> = ({ food, onEdit, onDelete }) => {
     <div className="border rounded-lg overflow-hidden shadow-md bg-white">
       <div className="h-48 bg-gray-200">
         {food.food_image ? (
-          <img src={food.food_image} alt={food.food_name} className="w-full h-full object-cover" />
+          <img
+            src={food.food_image}
+            alt={food.food_name}
+            className="w-full h-full object-cover"
+          />
         ) : null}
       </div>
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="font-bold restaurant-name">{food.restaurant_name}</h3>
-          <div className="flex space-x-2">
-            <span>⭐</span>
-            <span className="restaurant-rating">{food.food_rating}</span>
+          <div className="w-10 h-10 rounded-md">
+            <img src={food.restaurant_logo} className="w-full object-cover" />
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-black restaurant-name font-bold">
+              {food.restaurant_name}
+            </h3>
+            <div className="flex space-x-2">
+              <span>⭐</span>
+              <span className="restaurant-rating">{food.food_rating}</span>
+            </div>
+          </div>
+          <div className="h-10 overflow-hidden">
+            <img src="/More.png"  />
           </div>
         </div>
         <p className="text-gray-700 mb-2">{food.food_name}</p>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <button 
             className="text-blue-500 hover:underline"
             onClick={() => onEdit(food)}
@@ -39,7 +53,7 @@ const FoodCard: React.FC<FoodCardProps> = ({ food, onEdit, onDelete }) => {
           >
             Delete
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

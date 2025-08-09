@@ -6,8 +6,8 @@ export interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onAddMeal }) => {
   return (
-    <header className="flex justify-between items-center p-4 bg-white shadow-md border border-red-500 max-h-[74px]">
-      <div className="text-xl font-bold">Food App</div>
+    <header className="flex justify-between items-center p-4 bg-white shadow-md max-h-[65px]">
+      <div className="text-xl h-[30px] font-bold text-black"><img src="/Logo.png" className='w-full h-full object-contain' /></div>
       <button 
         onClick={onAddMeal}
         className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"

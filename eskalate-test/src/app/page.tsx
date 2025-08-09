@@ -68,7 +68,7 @@ export default function Home() {
                   Delivery
                 </button>
                 <button
-                  className={`px-4 py-2 rounded-r ${
+                  className={`px-4 py-2 rounded ${
                     deliveryType === "Pickup"
                       ? "bg-[#F172281A] text-[#F17228]"
                       : "bg-transparent"
@@ -79,12 +79,13 @@ export default function Home() {
                   Pickup
                 </button>
               </div>
+              <div className="w-full h-1 border-t border-gray-200 my-2"></div>
 
               <div className="flex">
                 <input
                   type="text"
                   placeholder="What do you like to eat today?"
-                  className="w-full p-2 rounded-l "
+                  className="w-full bg-[#F5F5F5] p-2 rounded-l text-black border-0 outline-none focus:ring-0"
                   style={{ backgroundColor: "#F5F5F5" }}
                 />
                 <button
@@ -99,7 +100,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="h-[60vh] flex flex-col justify-end border border-red-500">
+          <div className="h-[60vh] flex flex-col justify-end ">
             <div className="rounded-full w-80 h-80  mb-[-20px]">
             <img src="/img-base.png" />
             </div>
